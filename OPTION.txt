@@ -1,0 +1,152 @@
+﻿MAINACTIVITY.JAVA
+
+
+package com.example.optionm;
+
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+
+public class MainActivity extends AppCompatActivity {
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+   }
+
+
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater=getMenuInflater();
+       inflater.inflate(R.menu.menu_main,menu);
+       return super.onCreateOptionsMenu(menu);
+   }
+
+
+   @Override
+   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+       switch(item.getItemId()){
+           case R.id.settings:
+               Intent intent=new Intent(MainActivity.this,MainActivity2.class);
+               startActivity(intent);
+               break;
+           case R.id.about:
+               Toast.makeText(this,"you clicked about",Toast.LENGTH_SHORT).show();
+               break;
+           case R.id.msgs:
+               Toast.makeText(this,"you clicked starred messages",Toast.LENGTH_SHORT).show();
+               break;
+       }
+       return super.onOptionsItemSelected(item);
+   }
+}
+MAINACTIVITY.XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="HOME PAGE"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+MENU_MAIN.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+   android:id="@+id/settings"
+   android:title="settings"/>
+   <item
+       android:id="@+id/about"
+       android:title="about"/>
+
+
+   <item
+       android:id="@+id/msgs"
+       android:title="starred messages"/>
+
+
+</menu>
+
+
+
+
+ACTIVITY_MAIN2.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity2">
+
+
+   <TextView
+       android:id="@+id/settingspage"
+       android:layout_width="131dp"
+       android:layout_height="71dp"
+       android:text="Settings page"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.453"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.446" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+MAINACTIVITY 2.JAVA
+
+
+package com.example.optionm;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+
+
+import android.os.Bundle;
+
+
+public class MainActivity2 extends AppCompatActivity {
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main2);
+   }
+}
